@@ -122,10 +122,10 @@ app.get('/api/products/:category', (req, res) => {
     });
 });
 
-// app.get('/*', (req, res) => {
-//     res.send("It works!");
-// })
-app.get('/*', handleReactRoute);
+app.get('/*', (req, res) => {
+    res.send("It works!");
+})
+// app.get('/*', handleReactRoute);
 
 
 // We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
