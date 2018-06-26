@@ -7,6 +7,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import App from "../App";
 import Index from "../components/Index/Index";
+import initRedux from "../shared/init-redux";
 // import Helmet from 'react-helmet';
 // import { Provider } from 'react-redux';
 // import { StaticRouter } from 'react-router';
@@ -22,4 +23,13 @@ import Index from "../components/Index/Index";
 // import { setCurrentUser, logoutUser } from '../src/modules/auth';
 
 // LOADER
-export default (req, res) => {}
+export default (req, res) => {
+
+    // add redux
+    const store = initRedux();
+    console.log("STORE---", store)
+    //prefetch some data
+
+    const html = renderToString(<App />);
+    res.send(renderToString(<Index html={html}/>));
+}

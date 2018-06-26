@@ -122,9 +122,7 @@ app.get('/api/products/:category', (req, res) => {
     });
 });
 
-app.get('/*', (req, res) => {
-    res.send("It works!");
-})
+app.get('/*', handleReactRoute)
 // app.get('/*', handleReactRoute);
 
 

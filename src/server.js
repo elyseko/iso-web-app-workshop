@@ -1,5 +1,6 @@
 // Code based on: https://gist.github.com/cereallarceny/ee1b86227aabaf4a4b2a3144b84dfaa2
 const path = require('path');
+const md5File = require('md5-file');
 
 // CSS styles will be imported on load and that complicates matters... ignore those bad boys!
 const ignoreStyles = require('ignore-styles');
@@ -13,6 +14,7 @@ const extensions = ['.gif', '.jpeg', '.jpg', '.png', '.svg'];
 // Override the default style ignorer, also modifying all image requests
 register(ignoreStyles.DEFAULT_EXTENSIONS, (mod, filename) => {
     if (!extensions.find(f => filename.endsWith(f))) {
+        console.log("ignoreStyles")
         // If we find a style
         return ignoreStyles.noOp();
     } else {
@@ -32,7 +34,8 @@ require('babel-register')({
     plugins: [
         'syntax-dynamic-import',
         'dynamic-import-node',
-        'react-loadable/babel'
+        'react-loadable/babel',
+        'transform-react-jsx'
     ]
 });
 

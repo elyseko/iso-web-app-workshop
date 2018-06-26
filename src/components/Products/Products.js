@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import classnames from 'classnames';
-import productActions from '../../shared/products-action-creators.es6';
-import searchActions from '../../shared/search-action-creators.es6';
+// import { Link } from 'react-router-dom';
+// import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import classnames from 'classnames';
+// import productActions from '../../shared/products-action-creators.es6';
+// import searchActions from '../../shared/search-action-creators.es6';
 import Search from '../Search/Search';
-import Item from '../Item/Item';
+// import Item from '../Item/Item';
 
 import './Products.css';
 
 class Products extends React.Component {
-  // static prefetchActions() {
-  //   return [
-  //     productActions.getProductCategories,
-  //     productActions.getProducts
-  //   ];
-  // }
+  static prefetchActions() {
+    return [
+      productActions.getProductCategories,
+      productActions.getProducts
+    ];
+  }
 
   constructor(props) {
     super(props);
@@ -83,22 +83,22 @@ class Products extends React.Component {
     const allItems = this.props.products;
 
     const itemsArray = [];
-    // if (allItems) {
-    //   const queryRegExp = new RegExp(this.props.query || '', 'gi');
-    //   allItems.forEach((item, index) => {
-    //     if (
-    //       !this.props.query ||
-    //       this.props.query.length === 0 ||
-    //       item.name.search(queryRegExp) > -1 ||
-    //       item.description.search(queryRegExp) > -1 ||
-    //       item.details.search(queryRegExp) > -1
-    //     ) {
-    //       itemsArray.push(
-    //           <div>{/*<Item {...item} key={`${item.name}${index}`} />*/}</div>
-    //       );
-    //     }
-    //   });
-    // }
+    if (allItems) {
+      const queryRegExp = new RegExp(this.props.query || '', 'gi');
+      allItems.forEach((item, index) => {
+        if (
+          !this.props.query ||
+          this.props.query.length === 0 ||
+          item.name.search(queryRegExp) > -1 ||
+          item.description.search(queryRegExp) > -1 ||
+          item.details.search(queryRegExp) > -1
+        ) {
+          itemsArray.push(
+              <div>{/*<Item {...item} key={`${item.name}${index}`} />*/}</div>
+          );
+        }
+      });
+    }
     return itemsArray;
   }
 
