@@ -1,0 +1,21 @@
+#react-content .products .icon {
+    font-size: 2em;
+}
+
+#react-content .products .category-title {
+    margin-top: 10px;
+}
+
+#react-content .products,
+#react-content .product-list {
+    text-align: center;
+}
+
+.products .tooltip {
+    margin-top: 10px;
+    max-width: 200px;
+}
+
+.product-link {
+    color: #000;
+}

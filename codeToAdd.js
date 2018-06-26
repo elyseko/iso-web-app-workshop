@@ -1,3 +1,19 @@
+
+// App initial route - middleware:
+
+
+
+import {renderToString} from "react-dom/server";
+
+let html;
+try {
+    html = renderToString(<App/>);
+} catch (e) {
+    console.log(e)
+}
+res.send(renderToString(<Index html={html}/>));
+};
+
 //App initial step (React route)
 import React from "react";
 

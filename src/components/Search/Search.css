@@ -1,0 +1,9 @@
+#react-content .ui.search {
+    margin-bottom: 10px;
+}
+
+#react-content .icon.search {
+    margin-left: -40px;
+    margin-top: 7px;
+    font-size: 1.2em;
+}

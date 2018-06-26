@@ -9,13 +9,15 @@ import searchActions from '../../shared/search-action-creators.es6';
 import Search from '../Search/Search';
 import Item from '../Item/Item';
 
+import './Products.css';
+
 class Products extends React.Component {
-  static prefetchActions() {
-    return [
-      productActions.getProductCategories,
-      productActions.getProducts
-    ];
-  }
+  // static prefetchActions() {
+  //   return [
+  //     productActions.getProductCategories,
+  //     productActions.getProducts
+  //   ];
+  // }
 
   constructor(props) {
     super(props);
@@ -24,24 +26,24 @@ class Products extends React.Component {
     };
   }
 
-  componentDidMount() {
-    this.clearTimer = setTimeout(() => {
-      this.setState({
-        showToolTip: true
-      });
-    }, 10000);
-  }
+  // componentDidMount() {
+  //   this.clearTimer = setTimeout(() => {
+  //     this.setState({
+  //       showToolTip: true
+  //     });
+  //   }, 10000);
+  // }
 
-  componentWillUpdate(nextProps) {
-    if (nextProps.query && nextProps.query.length > 0) {
-      clearTimeout(this.clearTimer);
-    }
-    console.log('cWU');
-  }
+  // componentWillUpdate(nextProps) {
+  //   if (nextProps.query && nextProps.query.length > 0) {
+  //     clearTimeout(this.clearTimer);
+  //   }
+  //   console.log('cWU');
+  // }
 
-  componentWillUnmount() {
-    clearTimeout(this.clearTimer);
-  }
+  // componentWillUnmount() {
+  //   clearTimeout(this.clearTimer);
+  // }
 
   renderProductCategories() {
     const categories = this.props.categories;
@@ -81,22 +83,22 @@ class Products extends React.Component {
     const allItems = this.props.products;
 
     const itemsArray = [];
-    if (allItems) {
-      const queryRegExp = new RegExp(this.props.query || '', 'gi');
-      allItems.forEach((item, index) => {
-        if (
-          !this.props.query ||
-          this.props.query.length === 0 ||
-          item.name.search(queryRegExp) > -1 ||
-          item.description.search(queryRegExp) > -1 ||
-          item.details.search(queryRegExp) > -1
-        ) {
-          itemsArray.push(
-            <Item {...item} key={`${item.name}${index}`} />
-          );
-        }
-      });
-    }
+    // if (allItems) {
+    //   const queryRegExp = new RegExp(this.props.query || '', 'gi');
+    //   allItems.forEach((item, index) => {
+    //     if (
+    //       !this.props.query ||
+    //       this.props.query.length === 0 ||
+    //       item.name.search(queryRegExp) > -1 ||
+    //       item.description.search(queryRegExp) > -1 ||
+    //       item.details.search(queryRegExp) > -1
+    //     ) {
+    //       itemsArray.push(
+    //           <div>{/*<Item {...item} key={`${item.name}${index}`} />*/}</div>
+    //       );
+    //     }
+    //   });
+    // }
     return itemsArray;
   }
 
@@ -121,39 +123,39 @@ class Products extends React.Component {
   }
 }
 
-Products.propTypes = {
-  categories: PropTypes.arrayOf(PropTypes.shape({
-    icon: PropTypes.string,
-    description: PropTypes.string,
-    name: PropTypes.string,
-    id: PropTypes.string
-  })),
-  products: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    description: PropTypes.string,
-    details: PropTypes.string,
-    id: PropTypes.string,
-    price: PropTypes.number,
-    thumbnail: PropTypes.string
-  })),
-  query: PropTypes.string
-};
-
-function mapStateToProps(state) {
-  const { all, categories } = state.products;
-  const { query } = state.search;
-  return {
-    products: all,
-    categories,
-    query
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    productActions: bindActionCreators(productActions, dispatch),
-    searchActions: bindActionCreators(searchActions, dispatch)
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+// Products.propTypes = {
+//   categories: PropTypes.arrayOf(PropTypes.shape({
+//     icon: PropTypes.string,
+//     description: PropTypes.string,
+//     name: PropTypes.string,
+//     id: PropTypes.string
+//   })),
+//   products: PropTypes.arrayOf(PropTypes.shape({
+//     name: PropTypes.string,
+//     description: PropTypes.string,
+//     details: PropTypes.string,
+//     id: PropTypes.string,
+//     price: PropTypes.number,
+//     thumbnail: PropTypes.string
+//   })),
+//   query: PropTypes.string
+// };
+//
+// function mapStateToProps(state) {
+//   const { all, categories } = state.products;
+//   const { query } = state.search;
+//   return {
+//     products: all,
+//     categories,
+//     query
+//   };
+// }
+//
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     productActions: bindActionCreators(productActions, dispatch),
+//     searchActions: bindActionCreators(searchActions, dispatch)
+//   };
+// }
+export default Products;
+// export default connect(mapStateToProps, mapDispatchToProps)(Products);

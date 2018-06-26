@@ -8,12 +8,15 @@ import {
     storeUserId
 } from './shared/app-action-creators.es6';
 
+import './App.css';
+
 class App extends React.Component {
 
     render() {
         return (
             <div>
                 <div className="app-header ui fixed inverted menu">
+                    Hello
                 </div>
                 <div className="app-content ui main text container">
                 </div>
