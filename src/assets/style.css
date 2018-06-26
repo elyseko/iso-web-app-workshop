@@ -1,0 +1,64 @@
+/*
+Overriding semantic UI fonts to prevent font performance issues
+which makes examples clearer.
+*/
+#react-content *{
+  font-family: Arial;
+}
+
+#react-content .icon {
+  font-family: 'Icons';
+}
+
+#react-content .products .icon {
+  font-size: 2em;
+}
+
+#react-content .products .category-title {
+  margin-top: 10px;
+}
+
+#react-content .products,
+#react-content .product-list {
+  text-align: center;
+}
+
+#react-content .ui.search {
+  margin-bottom: 10px;
+}
+
+#react-content .icon.search {
+  margin-left: -40px;
+  margin-top: 7px;
+  font-size: 1.2em;
+}
+
+.main.container {
+  margin-top: 7em;
+}
+
+.ui.positive.basic.button {
+  display: block;
+  margin-top: 10px;
+}
+
+.btn-reset {
+  background: none;
+  border: 0;
+  color: inherit;
+  /* cursor: default; */
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+.products .tooltip {
+  margin-top: 10px;
+  max-width: 200px;
+}
+
+.product-link {
+  color: #000;
+}
