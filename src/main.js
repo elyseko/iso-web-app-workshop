@@ -122,16 +122,16 @@ app.get('/api/products/:category', (req, res) => {
     });
 });
 
-app.get('/*', () => {
-    "It works!"
+app.get('/*', (req, res) => {
+    res.send("It works!");
 })
 // app.get('/*', handleReactRoute);
 
 
 // We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
-Loadable.preloadAll().then(() => {
-    app.listen(PORT, console.log(`App listening on port ${PORT}!`));
-});
+// Loadable.preloadAll().then(() => {
+app.listen(PORT, console.log(`App listening on port ${PORT}!`));
+// });
 
 // Handle the bugs somehow
 app.on('error', error => {
