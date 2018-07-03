@@ -126,9 +126,7 @@ app.get('/api/products/:category', (req, res) => {
     });
 });
 
-app.get('/*', (req, res) => {
-    res.send('The route is working.')
-})
+app.get('/*', handleReactRoute)
 
 app.listen(PORT, console.log(`App listening on port ${PORT}!`));
 
