@@ -13,15 +13,6 @@ const Index = (props) => {
                     id="react-content"
                     dangerouslySetInnerHTML={{ __html: props.html }}
                 />
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    window.__SERIALIZED_STATE__ =
-                      JSON.stringify(${props.state})
-                  `
-                        }}
-                />
-                <script src={`${config.webpackServer}/static/js/bundle.js`}></script>
-            </body>
         </html>
     )
 }
