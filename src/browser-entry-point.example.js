@@ -1,22 +1,31 @@
+// React requirements
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { renderToString } from 'react-dom/server';
+import App from "../App";
+import Index from "../components/Index/Index";
+import initRedux from "../shared/init-redux";
 import { Provider } from 'react-redux';
-import { browserHistory, Router } from 'react-router';
-import initRedux from './shared/init-redux.js';
-import sharedRoutes from './shared/sharedRoutes';
-import App from "./App";
+import Products from "../components/Products/Products";
 
-const initialState = JSON.parse(window.__SERIALIZED_STATE__);
-// console.log(initialState);
+export default handleReactRoute(req, res) => {
 
-const store = initRedux(initialState);
+    // add redux
+    const store = initRedux();
+    // console.log("STORE---", store)
+    //prefetch some data
 
-function init() {
-    ReactDOM.hydrate(
-        <Provider store={store}>
-            <App/>
-        </Provider>, document.getElementById('react-content')
-    );
-}
+    const promises = Products.prefetchActions().map((initialAction) => {
+        return store.dispatch(initialAction());
+    });
 
-init();
+    Promise.all(promises).then(() => {
+        const serverState = store.getState();
+        const stringifiedServerState = JSON.stringify(serverState);
+
+        const html = renderToString(<Provider store={store}>
+            <App />
+        </Provider>);
+        res.send(renderToString(<Index html={html} state={stringifiedServerState}/>));
+    }).catch(e => {
+        console.log(e)
+    });
