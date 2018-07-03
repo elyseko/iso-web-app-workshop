@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../../config';
 
 const Index = (props) => {
     return (
@@ -12,7 +13,14 @@ const Index = (props) => {
                     id="react-content"
                     dangerouslySetInnerHTML={{ __html: props.html }}
                 />
-                <script src="http://localhost:3000/static/js/bundle.js"></script>
+                <script dangerouslySetInnerHTML={{
+                    __html: `
+                    window.__SERIALIZED_STATE__ =
+                      JSON.stringify(${props.state})
+                  `
+                        }}
+                />
+                <script src={`${config.webpackServer}/static/js/bundle.js`}></script>
             </body>
         </html>
     )

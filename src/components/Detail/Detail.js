@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import cartActions from '../../shared/cart-action-creators.es6';
-import productActions from '../../shared/products-action-creators.es6';
+import cartActions from '../../shared/cart-action-creators.js';
+import productActions from '../../shared/products-action-creators.js';
 
 class Detail extends React.Component {
 

@@ -5,7 +5,6 @@ import compression from 'compression';
 import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
-import Loadable from 'react-loadable';
 import cookieParser from 'cookie-parser';
 import fs from 'fs';
 
@@ -25,7 +24,6 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Set up homepage, static assets, and capture everything else
-// app.use(express.Router().get('/', loader));
 app.use(express.static(path.resolve(__dirname, './assets')));
 
 // routes
@@ -107,29 +105,30 @@ app.get('/api/products/:category', (req, res) => {
                 return item.id === req.params.category;
             });
             const hydratedProducts = [];
-            category.products.forEach((productId) => {
-                const details = products.find((product) => {
-                    return product.id === productId;
+
+            if (category && category.products) {
+                category.products.forEach((productId) => {
+                    const details = products.find((product) => {
+                        return product.id === productId;
+                    });
+                    hydratedProducts.push(details);
                 });
-                hydratedProducts.push(details);
-            });
-            const newCategory = {
-                ...category,
-                products: hydratedProducts
-            };
-            return res.send(newCategory);
+                const newCategory = {
+                    ...category,
+                    products: hydratedProducts
+                };
+                return res.send(newCategory);
+            } else {
+                res.status(404).send({error: "oh no!", message: "not a valid category"});
+            }
+
         });
     });
 });
 
 app.get('/*', handleReactRoute)
-// app.get('/*', handleReactRoute);
 
-
-// We tell React Loadable to load all required assets and start listening - ROCK AND ROLL!
-// Loadable.preloadAll().then(() => {
 app.listen(PORT, console.log(`App listening on port ${PORT}!`));
-// });
 
 // Handle the bugs somehow
 app.on('error', error => {

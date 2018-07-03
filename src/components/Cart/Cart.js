@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Item from '../Item/Item';
-import cartActions from '../../shared/cart-action-creators.es6';
+import cartActions from '../../shared/cart-action-creators.js';
 
 import './Cart.css';
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
-// import classnames from 'classnames';
-// import productActions from '../../shared/products-action-creators.es6';
-// import searchActions from '../../shared/search-action-creators.es6';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import classnames from 'classnames';
+import productActions from '../../shared/products-action-creators.js';
+import searchActions from '../../shared/search-action-creators.js';
 import Search from '../Search/Search';
-// import Item from '../Item/Item';
+import Item from '../Item/Item';
 
 import './Products.css';
 
@@ -67,11 +67,11 @@ class Products extends React.Component {
             key={`${product.id}${index}`}
             className="column segment secondary"
           >
-            <Link className="product-link" to={`/products/${product.id}`}>
+            <a className="product-link" href={`/products/${product.id}`}>
               <i className={classes} />
               <div className="category-title">{product.name}</div>
               {toolTip}
-            </Link>
+            </a>
           </div>
         );
       });
@@ -94,7 +94,7 @@ class Products extends React.Component {
           item.details.search(queryRegExp) > -1
         ) {
           itemsArray.push(
-              <div>{/*<Item {...item} key={`${item.name}${index}`} />*/}</div>
+              <Item {...item} key={`${item.name}${index}`} />
           );
         }
       });
@@ -141,21 +141,21 @@ class Products extends React.Component {
 //   query: PropTypes.string
 // };
 //
-// function mapStateToProps(state) {
-//   const { all, categories } = state.products;
-//   const { query } = state.search;
-//   return {
-//     products: all,
-//     categories,
-//     query
-//   };
-// }
+function mapStateToProps(state) {
+  const { all, categories } = state.products;
+  const { query } = state.search;
+  return {
+    products: all,
+    categories,
+    query
+  };
+}
 //
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     productActions: bindActionCreators(productActions, dispatch),
-//     searchActions: bindActionCreators(searchActions, dispatch)
-//   };
-// }
-export default Products;
-// export default connect(mapStateToProps, mapDispatchToProps)(Products);
+function mapDispatchToProps(dispatch) {
+  return {
+    productActions: bindActionCreators(productActions, dispatch),
+    searchActions: bindActionCreators(searchActions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

@@ -80,16 +80,17 @@ choosePort(HOST, DEFAULT_PORT)
       urls.lanUrlForConfig
     );
     const devServer = new WebpackDevServer(compiler, serverConfig);
-    // Launch WebpackDevServer.
+
+      // Launch WebpackDevServer.
     devServer.listen(port, HOST, err => {
       if (err) {
         return console.log(err);
       }
       if (isInteractive) {
-        clearConsole();
+        // clearConsole();
       }
       console.log(chalk.cyan('Starting the development server...\n'));
-      openBrowser(urls.localUrlForBrowser);
+      // openBrowser(urls.localUrlForBrowser);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {

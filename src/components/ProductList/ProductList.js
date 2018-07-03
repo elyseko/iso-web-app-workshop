@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import productActions from '../../shared/products-action-creators.es6';
-import searchActions from '../../shared/search-action-creators.es6';
+import productActions from '../../shared/products-action-creators.js';
+import searchActions from '../../shared/search-action-creators.js';
 import Item from '../Item/Item';
 import Search from '../Search/Search';
 
