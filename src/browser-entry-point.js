@@ -6,4 +6,17 @@ import initRedux from './shared/init-redux.js';
 import sharedRoutes from './shared/sharedRoutes';
 import App from "./App";
 
-console.log('The browser code got loaded!!!')
+const initialState = JSON.parse(window.__SERIALIZED_STATE__);
+// console.log(initialState);
+
+const store = initRedux(initialState);
+
+function init() {
+    ReactDOM.hydrate(
+        <Provider store={store}>
+            <App/>
+        </Provider>, document.getElementById('react-content')
+    );
+}
+
+init();
