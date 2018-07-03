@@ -12,12 +12,6 @@ import Item from '../Item/Item';
 import './Products.css';
 
 class Products extends React.Component {
-  static prefetchActions() {
-    return [
-      productActions.getProductCategories,
-      productActions.getProducts
-    ];
-  }
 
   constructor(props) {
     super(props);
@@ -25,25 +19,6 @@ class Products extends React.Component {
       showToolTip: false
     };
   }
-
-  // componentDidMount() {
-  //   this.clearTimer = setTimeout(() => {
-  //     this.setState({
-  //       showToolTip: true
-  //     });
-  //   }, 10000);
-  // }
-
-  // componentWillUpdate(nextProps) {
-  //   if (nextProps.query && nextProps.query.length > 0) {
-  //     clearTimeout(this.clearTimer);
-  //   }
-  //   console.log('cWU');
-  // }
-
-  // componentWillUnmount() {
-  //   clearTimeout(this.clearTimer);
-  // }
 
   renderProductCategories() {
     const categories = this.props.categories;
@@ -123,39 +98,22 @@ class Products extends React.Component {
   }
 }
 
-// Products.propTypes = {
-//   categories: PropTypes.arrayOf(PropTypes.shape({
-//     icon: PropTypes.string,
-//     description: PropTypes.string,
-//     name: PropTypes.string,
-//     id: PropTypes.string
-//   })),
-//   products: PropTypes.arrayOf(PropTypes.shape({
-//     name: PropTypes.string,
-//     description: PropTypes.string,
-//     details: PropTypes.string,
-//     id: PropTypes.string,
-//     price: PropTypes.number,
-//     thumbnail: PropTypes.string
-//   })),
-//   query: PropTypes.string
-// };
-//
-function mapStateToProps(state) {
-  const { all, categories } = state.products;
-  const { query } = state.search;
-  return {
-    products: all,
-    categories,
-    query
-  };
-}
-//
-function mapDispatchToProps(dispatch) {
-  return {
-    productActions: bindActionCreators(productActions, dispatch),
-    searchActions: bindActionCreators(searchActions, dispatch)
-  };
-}
+Products.propTypes = {
+  categories: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.string,
+    description: PropTypes.string,
+    name: PropTypes.string,
+    id: PropTypes.string
+  })),
+  products: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    details: PropTypes.string,
+    id: PropTypes.string,
+    price: PropTypes.number,
+    thumbnail: PropTypes.string
+  })),
+  query: PropTypes.string
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

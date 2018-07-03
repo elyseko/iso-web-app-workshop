@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(cookieParser());
 
-// Set up homepage, static assets, and capture everything else
 app.use(express.static(path.resolve(__dirname, './assets')));
 
 // routes
@@ -105,30 +104,22 @@ app.get('/api/products/:category', (req, res) => {
                 return item.id === req.params.category;
             });
             const hydratedProducts = [];
-
-            if (category && category.products) {
-                category.products.forEach((productId) => {
-                    const details = products.find((product) => {
-                        return product.id === productId;
-                    });
-                    hydratedProducts.push(details);
+            category.products.forEach((productId) => {
+                const details = products.find((product) => {
+                    return product.id === productId;
                 });
-                const newCategory = {
-                    ...category,
-                    products: hydratedProducts
-                };
-                return res.send(newCategory);
-            } else {
-                res.status(404).send({error: "oh no!", message: "not a valid category"});
-            }
-
+                hydratedProducts.push(details);
+            });
+            const newCategory = {
+                ...category,
+                products: hydratedProducts
+            };
+            return res.send(newCategory);
         });
     });
 });
 
-app.get('/*', (req, res) => {
-    res.send('The route is working.')
-})
+app.get('/*', handleReactRoute)
 
 app.listen(PORT, console.log(`App listening on port ${PORT}!`));
 
