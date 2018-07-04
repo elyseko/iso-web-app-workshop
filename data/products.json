@@ -5,7 +5,7 @@
     "details": "12oz",
     "id": "embedded-westie-mug",
     "price": 15,
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Super Cool Tshirt",
@@ -13,7 +13,7 @@
     "details": "available in men's sizes S-XL",
     "price": 30,
     "id": "super-cool-tshirt",
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Westie Throw Blanket",
@@ -21,7 +21,7 @@
     "details": "4x6ft, cotten polyester mix",
     "price": 45,
     "id": "westie-throw-blanket",
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Collar",
@@ -29,7 +29,7 @@
     "details": "Sizes xs - m, colors: black, grey, brown or pink",
     "price": 9,
     "id": "collar",
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Leash - Pattern",
@@ -37,7 +37,7 @@
     "details": "6ft, rope",
     "price": 15,
     "id": "leash-pattern",
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Organic Dog Food",
@@ -45,7 +45,7 @@
     "details": "8lbs, salmon and potato, limited ingredients",
     "id": "organic-dog-food",
     "price": 45,
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Organic Bacon Treats",
@@ -53,7 +53,7 @@
     "details": "4oz",
     "id": "organic-bacon-treats",
     "price": 10,
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   },
   {
     "name": "Dog Food",
@@ -61,6 +61,6 @@
     "details": "10lbs, chicken and rice",
     "id": "dog-food",
     "price": 35,
-    "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+    "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
   }
 ]

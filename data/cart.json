@@ -3,22 +3,22 @@
     {
       "name": "Mug",
       "price": 5,
-      "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+      "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
     },
     {
       "name": "Socks",
       "price": 10,
-      "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+      "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
     },
     {
       "name": "Dog Collar",
       "price": 15,
-      "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+      "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
     },
     {
       "name": "Treats",
       "price": 15,
-      "thumbnail": "http://localhost:3000/assets/cart-item-placeholder.jpg"
+      "thumbnail": "http://localhost:3003/assets/cart-item-placeholder.jpg"
     }
   ]
 }
