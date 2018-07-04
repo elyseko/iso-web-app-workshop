@@ -1,6 +1,7 @@
 import React from 'react';
-import Products from "./components/Products/Products";
-
+import { Link } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config'
+import { onRouteChange } from './shared/sharedRoutes';
 import './App.css';
 
 class App extends React.Component {
@@ -10,17 +11,21 @@ class App extends React.Component {
             <div>
                 <div className="app-header ui fixed inverted menu">
                     <h1 className="header item">All Things Westies</h1>
-                    <a href="/products" className="item">Products</a>
-                    <a href="/cart" className="item">Cart</a>
-                    <a href="/profile" className="item">Profile</a>
+                    <Link to="/products" className="item">Products</Link>
+                    <Link to="/cart" className="item">Cart</Link>
+                    <Link to="/profile" className="item">Profile</Link>
                 </div>
                 <div style={{marginTop: '100px'}}
                      className="app-content ui main text container">
-                    <Products />
-                </div>
+                    {
+                        renderRoutes(
+                            this.props.route.routes,
+                            { history: this.props.history }
+                        )
+                    }                </div>
             </div>
         );
     }
 }
 
-export default App;
+export default onRouteChange(App);
