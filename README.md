@@ -1,7 +1,6 @@
 
-# Isomorphic App Workshop COde
+# Isomorphic App Workshop Code
 Code for SPA conference workshop: how to build an isomorphic web app.
-
 
 To get started:
 
@@ -9,6 +8,8 @@ To get started:
 $ yarn
 $ yarn start
 ```
+
+** Or use npm
 
 This starts two separate servers:
 
