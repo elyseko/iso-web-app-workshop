@@ -13,6 +13,7 @@ const Index = (props) => {
                     id="react-content"
                     dangerouslySetInnerHTML={{ __html: props.html }}
                 />
+            </body>
         </html>
     )
 }
