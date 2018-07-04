@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { browserHistory, Router } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config'
 import initRedux from './shared/init-redux.js';
-import sharedRoutes from './shared/sharedRoutes';
-import App from "./App";
+import routes from './shared/sharedRoutes';
 
 const initialState = JSON.parse(window.__SERIALIZED_STATE__);
 // console.log(initialState);
@@ -14,7 +14,9 @@ const store = initRedux(initialState);
 function init() {
     ReactDOM.hydrate(
         <Provider store={store}>
-            <App/>
+            <BrowserRouter>
+                {renderRoutes(routes)}
+            </BrowserRouter>
         </Provider>, document.getElementById('react-content')
     );
 }
