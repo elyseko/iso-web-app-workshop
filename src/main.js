@@ -24,7 +24,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Set up homepage, static assets, and capture everything else
-app.use(express.static(path.resolve(__dirname, './assets')));
+app.use(express.static(path.resolve(__dirname, '../public/')));
 
 // routes
 
